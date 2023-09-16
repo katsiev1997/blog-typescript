@@ -1,0 +1,23 @@
+.header {
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+}
+
+.headerWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.headerLogo {
+  width: 35px;
+  height: 35px;
+  background: var(--red500);
+  border-radius: 70%;
+}
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

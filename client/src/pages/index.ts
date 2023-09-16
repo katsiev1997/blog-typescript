@@ -1,0 +1,6 @@
+export {default as HomePage} from "./HomePage/HomePage"
+export {default as ProfilePage} from "./ProfilePage/ProfilePage"
+export {default as AddArticlePage} from "./AddArticlePage/AddArticlePage"
+export {default as LoginPage} from "./Auth/LoginPage"
+export {default as SignUpPage} from "./Auth/SignUpPage"
+export {default as ArticlePage} from "./ArticlePage/ArticlePage"

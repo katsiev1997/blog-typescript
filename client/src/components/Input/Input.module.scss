@@ -1,0 +1,31 @@
+.input {
+  border-radius: 5px;
+  background: #e8e8e8;
+  padding: 13px 15px;
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+}
+
+.show {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  line-height: 15px;
+  padding: 3px;
+  border-radius: 4px;
+  background: #7e7e7e;
+  color: #fff;
+  cursor: pointer;
+}

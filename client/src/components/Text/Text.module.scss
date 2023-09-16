@@ -1,0 +1,30 @@
+.size24 {
+  font-size: 24px;
+  line-height: 32px;
+}
+.size16 {
+  font-size: 16px;
+  line-height: 24px;
+}
+.size12 {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.fw700 {
+    font-weight: 700;
+}
+.fw500 {
+    font-weight: 500;
+}
+.fw400 {
+    font-weight: 400;
+}
+
+.solid {
+    color: var(--red_500);
+}
+
+.default {
+    color: var(--gray_900);
+}
