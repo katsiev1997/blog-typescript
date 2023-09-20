@@ -39,7 +39,7 @@ export const login =
 export const refreshToken =
   () => async (dispatch: Dispatch<AuthType | GlobalLoadingType>) => {
     try {
-      dispatch({ type: LOADING, payload: false });
+      dispatch({ type: LOADING, payload: true });
       const res = await $api.get("/refreshToken");
       dispatch({
         type: AUTH,
