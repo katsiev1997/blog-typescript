@@ -61,9 +61,15 @@ const authCtrl = {
       console.log(error);
     }
   },
+  logout: async (req, res) => {
+    res.clearCookie("refreshToken", { pat: "/api/refreshToken" });
+    res.status(200).json({ message: "Logout success" });
+  },
+
   refreshToken: async (req, res) => {
     try {
       const rfToken = req.cookies.refreshToken;
+
       if (!rfToken)
         return res.status(400).json({ message: "Пожалуйста войдите!" });
 
@@ -72,12 +78,15 @@ const authCtrl = {
 
         if (err)
           return res.status(400).json({ message: "Пожалуйста войдите!" });
-        const user = await User.findOne({ _id: result._id });
+        const user = await User.findOne({ _id: result.payload._id });
+        console.log(user);
         if (!user) return res.status(400).json({ message: "Нет пользователя" });
 
         const access_token = jwt.sign(
           { payload: { _id: result._id } },
+
           process.env.ACCESS_TOKEN,
+
           { expiresIn: "2h" }
         );
 
@@ -88,6 +97,7 @@ const authCtrl = {
         });
       });
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ message: error.message });
     }
   },

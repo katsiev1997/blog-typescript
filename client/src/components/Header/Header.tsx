@@ -6,6 +6,16 @@ import { User } from "../../redux/types/authTypes";
 import { useSelector } from "react-redux";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  const onOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    console.log(123);
+  };
+
   const authData: User | null = useSelector(getAuthData);
   return (
     <header className={cls.header}>
@@ -13,8 +23,23 @@ const Header = () => {
         <div className={cls.headerWrap}>
           <div className={cls.headerLogo}></div>
           {authData ? (
-            <div>
+            <div className={cls.authData}>
               <Button to="addPost">Добавить пост</Button>
+              <div onClick={onOpen} className={cls.dropDown}>
+                {authData.avatar ? (
+                  <img src={authData.avatar} alt="" />
+                ) : (
+                  <div className={cls.avatar}>
+                    {authData.username.slice(0, 1)}
+                    {isOpen && (
+                      <ul>
+                        <li>Профиль</li>
+                        <li onClick={() => handleLogout()}>Выход</li>
+                      </ul>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           ) : (
             <div className={cls.headerRight}>

@@ -7,20 +7,23 @@ import authRoute from "./routes/authRoute.js";
 dotenv.config();
 const port = process.env.PORT;
 
-mongoose
-  .connect(process.env.DB_URL)
-  .then(console.log("Connected to MongoDB"))
-  .catch((error) => console.log(error));
-
 const app = express();
+
+app.use(express.json());
+app.use(cookieParser());
+
 app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
   })
 );
-app.use(express.json());
-app.use(cookieParser());
+
+mongoose
+  .connect(process.env.DB_URL)
+  .then(console.log("Connected to MongoDB"))
+  .catch((error) => console.log(error));
+
 app.use("/api", authRoute);
 
 app.listen(port, () => {

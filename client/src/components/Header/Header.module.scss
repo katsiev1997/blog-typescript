@@ -21,3 +21,42 @@
   align-items: center;
   gap: 20px;
 }
+
+.authData {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c4c4c4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropDown {
+  position: relative;
+  ul {
+    position: absolute;
+    top: 140%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    width: 100px;
+  }
+  li {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid var(--red500);
+    &:hover {
+      background: #dedede;
+    }
+    
+  }
+}
